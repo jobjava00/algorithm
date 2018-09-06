@@ -4,39 +4,6 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
-/**
- * Counting Elements
- *
- * This is a demo task.
- * 
- * Write a function:
- * 
- * class Solution { public int solution(int[] A); }
- * 
- * that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
- * 
- * For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
- * 
- * Given A = [1, 2, 3], the function should return 4.
- * 
- * Given A = [−1, −3], the function should return 1.
- * 
- * Write an efficient algorithm for the following assumptions:
- * 
- * N is an integer within the range [1..100,000];
- * each element of array A is an integer within the range [−1,000,000..1,000,000].
- * 
- * ### 풀이
- * 배열 A : N개의 정수로 이루어짐
- * A에서 발생하지 않는 0보다 큰 최소 양의 정수를 리턴하라!
- * 
- * ### 제약사항
- * N의 범위는 정수 [1..100,000]
- * A의 각 요소의 범위는 정수 [−1,000,000..1,000,000]
- *
- * ### 결과
- * https://app.codility.com/demo/results/training3PDG52-S7Q/?showingAll=1
- */
 public class MissingInteger {
 	public int solution(int[] A) {
 		boolean[] checker = new boolean[A.length + 1];

@@ -4,9 +4,6 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
-/**
- * result : https://app.codility.com/demo/results/trainingVQ2BN7-NU9/?showingAll=1
- */
 public class CountDiv {
 	public int solution(int A, int B, int K) {
 		int count = 0;
