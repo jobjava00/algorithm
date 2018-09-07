@@ -4,6 +4,19 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ ### 해석
+ * 2진갭 : N의 2진수에서 1로 둘러쌓인 연속적인 0의 최대 수
+
+ ### 풀이
+ * 1을 만나기전 까지 시퀀스 증가.
+ * 1을 만나면 시퀀스 초기화
+
+ ### 제약사항
+ * N의 범위는 정수 [1..2,147,483,647]
+ * 시간복잡도 : 최대 O(log(N))
+ * 공간복잡도 : 최대 O(1)
+ */
 public class BinaryGap {
     public int solution(int N) {
         String binaryStr = Integer.toBinaryString(N);

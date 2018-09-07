@@ -4,6 +4,27 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ ### 해석
+ * DNA sequence : 문자 A,C,G,T로 구성된 문자열 S
+ * S : N개의 문자로 구성된 비어 있지 않은 문자열 S[0]S[1]..S[N-1]
+ * A,C,G,T는 각각 1,2,3,4 이라는 impact factor 로 매치됨.
+ * 배열 P, Q : 비어있지 않은 배열로 각각 M개의 정수로 구성 됨
+ * K번째 query : (0 <= K < M) 위치 P[K]와 Q[K] 사이의 DNA sequence 포함된 최소 impact factor를 찾음.
+ * 주어진 DNA sequence의 K번째 query 들로 이루어진 배열을 리턴하라!
+
+ ### 풀이
+ * 각 글자별 누적 카운트를 저장
+ * 누적카운트[endIndex] - 누적카운트[startIndex - 1] 를 계산
+
+ ### 제약사항
+ * N의 범위는 정수 [1..100,000]
+ * M의 범위는 정수 [1..50,000]
+ * P,Q 배열의 각 요소의 범위는 정수 [0..N - 1]
+ * P[K] <= Q[K]
+ * 0 <= K < M
+ * S : 대문자 A,C,G,T 으로만 구성됨
+ */
 public class GenomicRangeQuery {
 	public int[] solution(String S, int[] P, int[] Q) {
 		int length = S.length();

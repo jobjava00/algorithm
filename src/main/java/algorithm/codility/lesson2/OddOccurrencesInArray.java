@@ -7,6 +7,22 @@ import java.util.HashSet;
 
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ ### 해석
+ * 배열 A : N개의 정수로 이루어진 비어있지 않는 배열
+ * 배열은 홀수 개의 요소들로 구성
+ * 배열의 각 요소는 다른 요소와 같은 값으로 쌍을 이룬다.
+ * 한개의 요소는 쌍을 이루지 않음.
+ * 쌍을 이루지 않는 값을 리턴하라!
+
+ ### 풀이
+ * 비트 연산 활용 - XOR로 각 요소가 페어하게 발생했는지 체크
+
+ ### 제약사항
+ * N은 홀수 개이고 범위는 정수 [1..1,000,000]
+ * 배열 A의 각 요소의 범위는 정수 [1..1,000,000,000]
+ * A의 값 중 하나를 제외하고 모두 짝수번 발생
+ */
 public class OddOccurrencesInArray {
 
     public int solution(int[] A) {

@@ -6,6 +6,20 @@ import java.util.Arrays;
 
 import org.junit.Assert;
 
+/**
+ ### 해석
+ * 배열 A : N개의 비어있지 않는 정수로 구성
+ * 순열 : 1 ~ N 까지 각 요소를 한번만 포함하는 시퀀스
+ * * 시퀀스이므로 순차적으로 증가 해야 함. 배열 크기 1 은 시퀀스가 아님
+ * 배열 A가 순열이면 1, 비순열이면 0 리턴하라!
+
+ ### 풀이
+ * 인덱스에 따른 체크 배열 사용
+
+ ### 제약사항
+ * N의 범위는 정수 [1..100,000]
+ * A의 각 요소의 범위는 정수 [1..1,000,000,000]
+ */
 public class PermCheck {
 	public int solution(int[] A) {
 		boolean[] checker = new boolean[A.length + 1];

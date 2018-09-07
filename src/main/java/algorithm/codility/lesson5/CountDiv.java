@@ -4,6 +4,21 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ ### 해석
+ * 세개의 정수 A,B,K 가 주어짐
+ * { i : A ≤ i ≤ B, i mod K = 0 }
+ * [A..B] 사이에 K로 나누어 떨어질수 있는 정수를 리턴하라!
+
+ ### 풀이
+ * A와 B사이에 K로 나눌수 있는 수 = (B / K) - (A / K)
+ * A가 K로 나눌수 있는지 여부 = (A % K == 0)
+ * A == B 이면 A와 B사이에 K로 나눌수 있는 수는 없음.
+
+ ### 제약사항
+ * A,B의 범위는 정수 [0..2,000,000,000]
+ * K의 범위는 정수 [1..2,000,000,000]
+ */
 public class CountDiv {
 	public int solution(int A, int B, int K) {
 		int count = 0;

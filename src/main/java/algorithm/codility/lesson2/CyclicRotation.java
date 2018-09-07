@@ -4,6 +4,21 @@ import org.junit.Assert;
 
 import static org.hamcrest.CoreMatchers.is;
 
+/**
+ ### 해석
+ * 배열 A : N개의 정수로 이루어진 배열
+ * 배열의 Rotation : 각 요소가 하나의 인덱스만큼 오른쪽으로 이동
+ * 배열의 마지막 요소에서 이동하면 제일 처음으로 이동
+ * 배열 A를 K번째 회전한 배열을 리턴하라!
+
+ ### 풀이
+ * K번째 이동은 결국 A의 length 내에서의 이동이다.
+
+ ### 제약사항
+ * N,K의 범위는 정수 [0..100]
+ * 배열 A의 각 요소의 범위는 정수 [−1,000..1,000]
+ * 정확성에 초점.
+ */
 public class CyclicRotation {
     /**
      * K번째 이동은 결국 A의 length 내에서의 이동이다.
