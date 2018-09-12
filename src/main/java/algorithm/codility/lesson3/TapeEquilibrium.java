@@ -24,16 +24,16 @@ import org.junit.Assert;
  */
 public class TapeEquilibrium {
 	public int solution(int[] A) {
-		int[] sumArray = new int[A.length];
+		int[] sumArray = new int[A.length]; //이전 요소까지의 합 배열
 		int length = A.length;
 
 		for (int i = 0; i < length; i++) {
-			if (0 == i) sumArray[i] = A[i];
-			else sumArray[i] = sumArray[i - 1] + A[i];
+			if (0 == i) sumArray[i] = A[i]; //초기 값 설정
+			else sumArray[i] = sumArray[i - 1] + A[i];  //이전 요소와 현재 값 더함.
 		}
 		boolean isFirst = true;
 		int result = 0;
-		for (int i = 1; i < length; i++) {
+		for (int i = 1; i < length; i++) {  //P는 0 < P < N이므로 1부터 시작
 			int sum = (sumArray[length - 1] - sumArray[i - 1]) - sumArray[i - 1];
 			sum = Math.abs(sum);
 			if (isFirst) {
