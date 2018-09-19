@@ -24,7 +24,7 @@ import org.junit.Assert;
 
  * N의 범위는 정수 [0..1,000,000]
  * S의 문자는 "(", ")" 으로만 구성되어 있음.
- * 
+ *
  ## 결과
  * <https://app.codility.com/demo/results/training3G4N84-JDG/?showingAll=1>
  */
