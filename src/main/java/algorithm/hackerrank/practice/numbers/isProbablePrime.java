@@ -1,4 +1,4 @@
-package algorithm.hackerrank.practice.BigNumber;
+package algorithm.hackerrank.practice.numbers;
 
 import org.junit.Assert;
 
