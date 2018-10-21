@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * ArrayList
- * ArrayList를 배열에 담아서 이중 arrayList 형식으로 사용..
- *  -> ArrayList의 개수를 알면 배열로 담는게 나은듯 하다.
- * https://www.hackerrank.com/challenges/java-arraylist/problem
+ * https://jobjava00.github.io/algorithm/hackerrank/structures/ArrayList/
  */
 public class ArrayListData {
 	public static void main(String[] args) {

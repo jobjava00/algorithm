@@ -3,7 +3,7 @@ package algorithm.hackerrank.practice.structures;
 import java.util.*;
 
 /**
- * Created by uienw on 2018-10-20.
+ * https://jobjava00.github.io/algorithm/hackerrank/structures/Dequeue/
  */
 public class DequeueData {
 	public static void main(String[] args) {

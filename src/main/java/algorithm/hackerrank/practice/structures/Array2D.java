@@ -5,9 +5,7 @@ import org.junit.Assert;
 import static org.hamcrest.core.Is.is;
 
 /**
- * 6 * 6 인 2차원 배열
- * 모래시계들의 합을 구해서 최대 합을 갖는 모래시계의 합을 출력하라.
- * https://www.hackerrank.com/challenges/java-2d-array/problem
+ * https://jobjava00.github.io/algorithm/hackerrank/structures/Array2D/
  */
 public class Array2D {
     public int solution(int[][] arr) {

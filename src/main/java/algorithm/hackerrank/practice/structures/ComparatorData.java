@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ * https://jobjava00.github.io/algorithm/hackerrank/structures/Comparator/
+ */
 class Checker implements Comparator<Player> {
 	@Override
 	public int compare(Player o1, Player o2) {
