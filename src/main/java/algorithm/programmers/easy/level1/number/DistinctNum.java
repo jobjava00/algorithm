@@ -1,10 +1,15 @@
 package algorithm.programmers.easy.level1.number;
 
+import org.junit.Assert;
+
 import java.util.*;
+import java.util.stream.IntStream;
+
+import static org.hamcrest.CoreMatchers.is;
 
 /**
  * 같은 숫자는 싫어
- *
+ * <p>
  * 배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다.
  * 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다.
  * 배열 arr에서 제거 되고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
@@ -18,33 +23,17 @@ import java.util.*;
  */
 public class DistinctNum {
 
-    public int[] solution(int []arr) {
-        int cnt = arr.length;
-        List<Integer> list = new LinkedList<>();
-        for (int i = 0; i < cnt; i++) {
-            if(i == 0){
-                list.add(arr[i]);
-                continue;
-            }
-            if(arr[i] != arr[i-1]){
-                list.add(arr[i]);
-            }
-        }
-
-        int[] answer = new int[list.size()];
-        int index = 0;
-        for (Integer v: list) {
-            answer[index++] = v;
-        }
-
-        return answer;
+    public int[] solution(int[] arr) {
+        return IntStream.range(0, arr.length)
+                .filter(i -> i == 0 ? true : arr[i] != arr[i - 1])
+                .map(i -> arr[i])
+                .toArray();
     }
 
     public static void main(String[] args) {
         DistinctNum question = new DistinctNum();
-        int[] result = question.solution(new int[]{1, 1, 3, 3, 0, 1, 1});
-        System.out.println(Arrays.toString(result));
-        result = question.solution(new int[]{4, 4, 4, 3, 3});
-        System.out.println(Arrays.toString(result));
+        Assert.assertThat(question.solution(new int[]{1, 2, 3, 3, 6, 7, 7, 8}), is(new int[]{1, 2, 3, 6, 7, 8}));
+        Assert.assertThat(question.solution(new int[]{1, 1, 3, 3, 0, 1, 1}), is(new int[]{1, 3, 0, 1}));
+        Assert.assertThat(question.solution(new int[]{4, 4, 4, 3, 3}), is(new int[]{4, 3}));
     }
 }
