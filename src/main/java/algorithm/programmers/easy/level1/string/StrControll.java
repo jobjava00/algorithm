@@ -12,13 +12,12 @@ import org.junit.Assert;
  */
 public class StrControll {
 	public boolean solution(String s) {
-		boolean answer = true;
 		int size = s.length();
 		if (size != 4 && size != 6) return false;
 		for (char c : s.toCharArray()) {
 			if (!Character.isDigit(c)) return false;
 		}
-		return answer;
+		return true;
 	}
 
 	public static void main(String[] args) {

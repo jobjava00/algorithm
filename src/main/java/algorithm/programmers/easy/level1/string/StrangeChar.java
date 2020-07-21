@@ -49,7 +49,7 @@ public class StrangeChar {
 	public static void main(String[] args) {
 		StrangeChar question = new StrangeChar();
 		Assert.assertThat(question.solution("try hello world"), is("TrY HeLlO WoRlD"));
-		Assert.assertThat(question.solution("aBc derf  hewq"), is("AbC DeRf  HeWq"));
+		Assert.assertThat(question.solution("aBcD derf  hewq"), is("AbCd DeRf  HeWq"));
 		Assert.assertThat(question.solution(" ABCD"), is(" AbCd"));
 	}
 }
