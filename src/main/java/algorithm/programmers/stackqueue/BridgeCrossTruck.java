@@ -1,7 +1,9 @@
 package algorithm.programmers.stackqueue;
 
-import algorithm.programmers.hash.MarathonParticipant;
 import org.junit.Assert;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 다리를 지나는 트럭
@@ -36,17 +38,75 @@ import org.junit.Assert;
  * 100	100	[10,10,10,10,10,10,10,10,10,10] 110
  */
 public class BridgeCrossTruck {
+
 	public int solution(int bridge_length, int weight, int[] truck_weights) {
-		int answer = 0;
-		return answer;
+		Queue<Truck> waitingTruck = new LinkedList<>();
+		Queue<Truck> bridgeCrossTruck = new LinkedList<>();
+
+		for (int truckWeight : truck_weights) {
+			waitingTruck.offer(new Truck(truckWeight, 0));
+		}
+
+		int totalTime = 0;
+		int totalWeight = 0;
+
+		while (!(bridgeCrossTruck.isEmpty() && waitingTruck.isEmpty())) {
+			totalTime++;
+
+			if (!bridgeCrossTruck.isEmpty()) {
+				Truck truck = bridgeCrossTruck.peek();
+
+				if (totalTime - truck.entryTime >= bridge_length) {
+					bridgeCrossTruck.poll();
+					totalWeight -= truck.weight;
+				}
+			}
+
+			if (!waitingTruck.isEmpty()) {
+				Truck truck = waitingTruck.peek();
+
+				if (totalWeight + truck.weight <= weight) {
+					waitingTruck.poll();
+					totalWeight += truck.weight;
+					bridgeCrossTruck.offer(new Truck(truck.weight, totalTime));
+				}
+			}
+		}
+		return totalTime;
+	}
+
+	class Truck {
+		int weight;
+		int entryTime;
+
+		public Truck(int weight, int entryTime) {
+			this.weight = weight;
+			this.entryTime = entryTime;
+		}
 	}
 
 	public static void main(String args[]) {
 		BridgeCrossTruck bridgeCrossTruck = new BridgeCrossTruck();
 		int bridge_length = 2;
 		int weight = 10;
-		int[] completion = new int[] {7,4,5,6};
+		int[] completion = new int[] { 7, 4, 5, 6 };
 
 		Assert.assertEquals(8, bridgeCrossTruck.solution(bridge_length, weight, completion));
+
+		bridge_length = 100;
+		weight = 100;
+		completion = new int[] { 10 };
+
+		Assert.assertEquals(101, bridgeCrossTruck.solution(bridge_length, weight, completion));
+		bridge_length = 100;
+		weight = 100;
+		completion = new int[] { 10 };
+
+		Assert.assertEquals(101, bridgeCrossTruck.solution(bridge_length, weight, completion));
+		bridge_length = 100;
+		weight = 100;
+		completion = new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+
+		Assert.assertEquals(110, bridgeCrossTruck.solution(bridge_length, weight, completion));
 	}
 }
