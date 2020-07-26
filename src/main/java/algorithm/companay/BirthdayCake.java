@@ -12,7 +12,7 @@ import java.util.Map;
  * ages : [23, 61, 46], result : 1
  * ages : [44, 33, 69, 62], result : 2
  */
-public class CoupangCake {
+public class BirthdayCake {
 
     public int solution(int[] ages) {
         Map<Integer, Integer> candleMap = new HashMap();
@@ -38,7 +38,7 @@ public class CoupangCake {
     }
 
     public static void main(String args[]) {
-        CoupangCake question = new CoupangCake();
+        BirthdayCake question = new BirthdayCake();
 
         Assert.assertEquals(1, question.solution(new int[]{23, 61, 46}));
         Assert.assertEquals(2, question.solution(new int[]{44, 33, 69, 62}));
