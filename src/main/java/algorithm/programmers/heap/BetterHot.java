@@ -2,7 +2,7 @@ package algorithm.programmers.heap;
 
 import org.junit.Assert;
 
-import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  더 맵게
@@ -35,23 +35,25 @@ import java.util.Arrays;
 public class BetterHot {
 
     public int solution(int[] scoville, int K) {
-        Arrays.sort(scoville);
-        int answer = 0;
+        PriorityQueue<Integer> q = new PriorityQueue<>();
 
-        for (int i = 1; i < scoville.length; i++) {
-            int min = Math.min(scoville[i -1], scoville[i]);
-            int max = Math.max(scoville[i -1], scoville[i]);
+        for(int i = 0; i < scoville.length; i++)
+            q.add(scoville[i]);
 
-            scoville[i -1] = min;
-            scoville[i] = max;
+        int count = 0;
+        while(q.size() > 1 && q.peek() < K){
+            int weakHot = q.poll();
+            int secondWeakHot = q.poll();
 
-            if(min < K) {
-                int scovilleNumber = min + (max * 2);
-                scoville[i] = scovilleNumber;
-                answer++;
-            }
+            int mixHot = weakHot + (secondWeakHot * 2);
+            q.add(mixHot);
+            count++;
         }
-        return answer;
+
+        if(q.size() <= 1 && q.peek() < K)
+            count = -1;
+
+        return count;
     }
 
     public static void main(String[] args) {
@@ -59,5 +61,8 @@ public class BetterHot {
         Assert.assertEquals(2, question.solution(new int[]{1, 2, 3, 9, 10, 12}, 7));
         Assert.assertEquals(2, question.solution(new int[]{3, 10, 1, 9, 2, 12}, 7));
         Assert.assertEquals(3, question.solution(new int[]{1, 1, 1, 9, 10, 12}, 8));
+        Assert.assertEquals(-1, question.solution(new int[]{1, 1, 1, 1, 1}, 40));
+        Assert.assertEquals(3, question.solution(new int[]{31, 31, 31, 31, 31}, 32));
+        Assert.assertEquals(0, question.solution(new int[]{31, 31}, 30));
     }
 }
